@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Teacher's Day ❤️</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2, #ffcc80);
+      background-size: 400% 400%;
+      animation: bgAnimation 15s ease infinite;
+      font-family: 'Courier New', Courier, monospace;
+      color: #333;
+      overflow: auto;
+      position: relative;
+    }
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .envelope {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 200px;
+      background: #ff9800;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 10;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 100px solid #ffb74d;
+      transform-origin: bottom;
+    }
+
+    .envelope.opened { animation: openEnvelope 4s forwards; }
+    .envelope.opened::before { animation: flapOpen 2s forwards; }
+
+    @keyframes flapOpen {
+      0% { transform: rotateX(0deg); }
+      100% { transform: rotateX(180deg); opacity: 0; }
+    }
+    @keyframes openEnvelope {
+      0% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: showContent 1s ease-in 5s forwards;
+      z-index: 5;
+      position: relative;
+    }
+
+    @keyframes showContent { to { opacity: 1; } }
+
+    h1 {
+      font-size: 3rem;
+      color: #e65100;
+      margin-bottom: 10px;
+      animation: fadeInUp 1.5s ease-in-out;
+      text-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800;
+    }
+
+    p {
+      font-size: 1.2rem;
+      white-space: pre-line;
+      line-height: 1.6;
+      animation: fadeInUp 2.5s ease-in-out;
+    }
+
+    .photo {
+      width: 250px;
+      border-radius: 20px;
+      margin: 30px auto;
+      animation: float 3s ease-in-out infinite, fadeInUp 2s ease-in-out;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .code-block {
+      text-align: left;
+      background: #212121;
+      color: #ffcc80;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 40px;
+      font-size: 0.95rem;
+      overflow: auto;
+      animation: fadeInUp 3s ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: auto;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ffcc80;
+      transform: rotate(45deg);
+      animation: floatHeart 10s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ffcc80;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.05); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="thank-you-teacher.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="hearts">
+    <div class="heart" style="left:10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left:30%; animation-delay: 2s;"></div>
+    <div class="heart" style="left:50%; animation-delay: 4s;"></div>
+    <div class="heart" style="left:70%; animation-delay: 1s;"></div>
+    <div class="heart" style="left:90%; animation-delay: 3s;"></div>
+  </div>
+
+  <div class="envelope" id="envelope"></div>
+
+  <div class="content">
+    <h1>Happy Teacher's Day ❤️</h1>
+
+    <img class="photo" src="553106930_830910142696857_2358437518098974837_n.jpg" alt="Teacher Appreciation" />
+
+    <p>
+Ma’am Veronica, maraming salamat po sa lahat ng naitulong ninyo sa akin. 
+Marami po akong natutunan dahil sa inyo hindi lamang sa mga aralin kundi maging sa araw-araw na pamumuhay. 
+Lahat po ng mga payo at salita ninyo ay sinapuso ko at pinag-iisipan nang mabuti.  
+
+Sorry rin po Ma’am kung minsan sobrang kulit at minsan po late Ma’am.  
+
+We love you, Ma’am best adviser ever ❤️
+    </p>
+
+    <div class="code-block">
+<pre><code>const teacherAppreciation = {
+  role: "Teacher",
+  gift: "Our gratitude ❤️",
+  message: () => "Thank you for inspiring and guiding us every day ❤️"
+};
+
+console.log(teacherAppreciation.message());</code></pre>
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const audio = document.getElementById('bgMusic');
+
+    envelope.addEventListener('click', () => {
+      envelope.classList.add('opened');
+      setTimeout(() => {
+        audio.play().catch(() => {
+          alert("Please tap to enable music 🎵");
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>
