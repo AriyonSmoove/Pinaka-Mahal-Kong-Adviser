@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Teacher's Day ❤️</title>
+  <style>
+    body {
+      background-color: #ff4d4d;
+      font-family: 'Trebuchet MS', sans-serif;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+      color: #fff;
+    }
+    h1 {
+      font-size: 40px;
+      color: #fff5f5;
+      text-shadow: 2px 2px 10px #660000;
+      margin-bottom: 20px;
+      z-index: 2;
+      position: relative;
+    }
+    .photo {
+      width: 280px;
+      height: auto;
+      border-radius: 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    p {
+      font-size: 20px;
+      color: #fff5f5;
+      max-width: 650px;
+      margin: 15px auto;
+      line-height: 1.8;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      font-size: 24px;
+      animation: fall linear infinite;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Teacher's Day ❤️</h1>
+  <img src="553106930_830910142696857_2358437518098974837_n.jpg" alt="Teacher's Day" class="photo">
+
+  <p>
+    Ma’am Veronica, maraming salamat po sa lahat ng naitulong ninyo sa akin. 
+    Marami po akong natutunan dahil sa inyo hindi lamang sa mga aralin kundi maging sa araw-araw na pamumuhay. 
+    Lahat po ng mga payo at salita ninyo ay sinapuso ko at pinag-iisipan nang mabuti.
+  </p>
+  <p>
+    Sorry rin po Ma'am kung minsan sobrang kulit at minsan po late Ma'am.
+  </p>
+  <p>
+    We love you, Ma’am best adviser ever ❤️
+  </p>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = Math.random() * 20 + 20 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
